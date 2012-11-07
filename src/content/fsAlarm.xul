@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css"
+  href="chrome://firefoxshield/skin/fsAlarm.css" ?>
+
+<!DOCTYPE window SYSTEM "chrome://firefoxshield/locale/fsAlarm.dtd">
+
+<dialog id="firefoxshield-alarm" title="&firefoxshield.alarm.title;"
+  ondialogaccept="return FSAlarm.accept();"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript"
+    src="chrome://firefoxshield/content/fsAlarm.js" />
+
+  <vbox>
+    <description id="description-first">
+      &firefoxshield.firstRun.label;
+    </description>
+
+    <groupbox>
+      <vbox id="homepage-box" class="pref">
+        <checkbox id="homepage" checked="true"
+          label="&firefoxshield.homepage.label;" />
+        <label value="&firefoxshield.current.label;" />
+        <textbox id="homepage-value" readonly="true" disabled="true" />
+      </vbox>
+      <vbox id="newtab-url-box" class="pref">
+        <checkbox id="newtab-url" checked="true"
+          label="&firefoxshield.newTabUrl.label;" />
+        <label value="&firefoxshield.current.label;" />
+        <textbox id="newtab-url-value" readonly="true" disabled="true" />
+      </vbox>
+      <vbox id="keyword-url-box" class="pref">
+        <checkbox id="keyword-url" checked="true"
+          label="&firefoxshield.keywordUrl.label;" />
+        <label value="&firefoxshield.current.label;" />
+        <textbox id="keyword-url-value" readonly="true" disabled="true" />
+      </vbox>
+      <vbox id="user-agent-box" class="pref">
+        <checkbox id="user-agent" checked="true"
+          label="&firefoxshield.userAgent.label;" />
+        <label value="&firefoxshield.current.label;" />
+        <textbox id="user-agent-value" readonly="true" disabled="true" />
+      </vbox>
+    </groupbox>
+  </vbox>
+
+</dialog>

@@ -1,0 +1,12 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY firefoxshield.alarm.title          "Guardián de preferencias">
+
+<!ENTITY firefoxshield.firstRun.label       "Las siguientes preferencias fueron cambiadas por un complemento. Desea restaurar sus valores originales?">
+<!ENTITY firefoxshield.current.label        "Valor actual:">
+<!ENTITY firefoxshield.homepage.label       "Página de inicio">
+<!ENTITY firefoxshield.newTabUrl.label      "Pestaña nueva">
+<!ENTITY firefoxshield.keywordUrl.label     "Búsqueda de palabra clave">
+<!ENTITY firefoxshield.userAgent.label      "Agente de usuario">
