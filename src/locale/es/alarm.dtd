@@ -1,0 +1,16 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY settingsguard.alarm.title          "Guardián de preferencias">
+
+<!ENTITY settingsguard.firstRun.label       "Las siguientes preferencias pueden haber sido cambiadas por un complemento. Desea utilizar las preferencias originales?">
+<!ENTITY settingsguard.current.label        "Preferencia actual:">
+<!ENTITY settingsguard.homepage.label       "Página de inicio">
+<!ENTITY settingsguard.homepageTip.label    "Esta página se muestra cuando hace click en el botón de inicio.">
+<!ENTITY settingsguard.newTabUrl.label      "Pestaña nueva">
+<!ENTITY settingsguard.newTabUrlTip.label   "Esta página se muestra cuando abre una pestaña nueva.">
+<!ENTITY settingsguard.keywordUrl.label     "Búsqueda de palabra clave">
+<!ENTITY settingsguard.keywordUrlTip.label  "Esta páginga de búsqueda se abre cuando ingresa palabras en la barra de direcciones.">
+<!ENTITY settingsguard.userAgent.label      "Agente de usuario">
+<!ENTITY settingsguard.userAgentTip.label   "Así es como &brandShortName; se identifica en la web.">

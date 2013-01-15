@@ -8,12 +8,12 @@
   xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
   <Description about="urn:mozilla:install-manifest">
-    <em:id>firefox-shield@mozilla.com</em:id>
-    <em:name>Firefox Shield</em:name>
+    <em:id>settings-guard@mozilla.com</em:id>
+    <em:name>Settings Guard for Firefox</em:name>
     <em:description>
       Detects and resets changes to settings that are frequently done by add-ons and application installers.
     </em:description>
-    <em:version>0.3</em:version>
+    <em:version>0.4</em:version>
     <em:creator>Mozilla</em:creator>
     <em:bootstrap>true</em:bootstrap>
     <em:type>2</em:type>
@@ -24,14 +24,14 @@
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>16.0</em:minVersion>
-        <em:maxVersion>19.*</em:maxVersion>
+        <em:maxVersion>20.*</em:maxVersion>
       </Description>
     </em:targetApplication>
 
     <em:localized>
       <Description>
         <em:locale>es</em:locale>
-        <em:name>Firefox Shield</em:name>
+        <em:name>Guardián de preferencias para Firefox</em:name>
         <em:description>
           Detecta y restaura cambios a preferencias que son frecuentemente realizados por complementos e instaladores.
         </em:description>

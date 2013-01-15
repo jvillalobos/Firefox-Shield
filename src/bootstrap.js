@@ -4,26 +4,38 @@
 
 "use strict";
 
-const Cc = Components.classes;
-const Ci = Components.interfaces;
-
-let timer;
-
 function install(aData, aReason) {}
 
 function uninstall(aData, aReason) {}
 
 function startup(aData, aReason) {
-  Components.utils.import("chrome://firefoxshield/content/fsCommon.js");
-  // wait a few seconds for the browser to start (we need a browser window to
-  // be open).
-  const RUN_DELAY = 5 * 1000;
+  Components.utils.import("resource://gre/modules/Services.jsm");
+  Components.utils.import("chrome://settingsguard/content/common.jsm");
 
-  timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-  timer.initWithCallback(
-    { notify : function() { FirefoxShield.checkPrefs(); } }, RUN_DELAY,
-    Ci.nsITimer.TYPE_ONE_SHOT);
+  // No windows are opened yet at startup.
+  if (APP_STARTUP == aReason) {
+    let observer = {
+        observe : function(aSubject, aTopic, aData) {
+          if ("domwindowopened" == aTopic) {
+            Services.ww.unregisterNotification(observer);
+
+            let window =
+              aSubject.QueryInterface(Components.interfaces.nsIDOMWindow);
+            // wait for the window to load so that the SG window appears on top.
+            window.addEventListener(
+              "load", function() { SettingsGuard.checkPrefs(window); }, false);
+          }
+        }
+      };
+
+    Services.ww.registerNotification(observer);
+  } else {
+    SettingsGuard.checkPrefs(
+      Services.wm.getMostRecentWindow("navigator:browser"));
+  }
 }
 
 function shutdown(aData, aReason) {
+  Components.utils.unload("resource://gre/modules/Services.jsm");
+  Components.utils.unload("chrome://settingsguard/content/common.jsm");
 }

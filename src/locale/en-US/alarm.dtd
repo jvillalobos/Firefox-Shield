@@ -1,0 +1,16 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY settingsguard.alarm.title          "Settings Guard">
+
+<!ENTITY settingsguard.firstRun.label       "The following settings may have been changed by an add-on. Do you want to use the original settings?">
+<!ENTITY settingsguard.current.label        "Current setting:">
+<!ENTITY settingsguard.homepage.label       "Homepage">
+<!ENTITY settingsguard.homepageTip.label    "This page is opened when you click on the Home button.">
+<!ENTITY settingsguard.newTabUrl.label      "New tab page">
+<!ENTITY settingsguard.newTabUrlTip.label   "This page is opened when you open a new tab.">
+<!ENTITY settingsguard.keywordUrl.label     "Keyword search">
+<!ENTITY settingsguard.keywordUrlTip.label  "This search page is opened when you enter words in the location bar.">
+<!ENTITY settingsguard.userAgent.label      "User Agent">
+<!ENTITY settingsguard.userAgentTip.label   "This is how &brandShortName; identifies itself on the web.">

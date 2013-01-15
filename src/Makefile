@@ -1,11 +1,11 @@
 # The name of the extension.
-extension_name := firefox-shield
+extension_name := settings-guard
 
 # The UUID of the extension.
-extension_uuid := firefox-shield@mozilla.com
+extension_uuid := settings-guard@mozilla.com
 
 # The name of the profile dir where the extension can be installed.
-profile_dir := firefox-shield
+profile_dir := settings-guard
 
 # The zip application to be used.
 ZIP := zip
@@ -62,6 +62,7 @@ xpi_built := install.rdf \
              bootstrap.js \
              chrome.manifest \
              $(wildcard content/*.js) \
+             $(wildcard content/*.jsm) \
              $(wildcard content/*.xul) \
              $(wildcard skin/*.css) \
              $(wildcard locale/*/*.dtd) \

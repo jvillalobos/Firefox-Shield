@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css"
+  href="chrome://settingsguard/skin/alarm.css" ?>
+
+<!DOCTYPE dialog [
+  <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+  %brandDTD;
+  <!ENTITY % alarmDTD SYSTEM "chrome://settingsguard/locale/alarm.dtd">
+  %alarmDTD;
+]>
+
+<dialog id="settingsguard-alarm" title="&settingsguard.alarm.title;"
+  ondialogaccept="return SGAlarm.accept();"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript"
+    src="chrome://settingsguard/content/alarm.js" />
+
+  <vbox>
+    <description id="description-first">
+      &settingsguard.firstRun.label;
+    </description>
+
+    <groupbox>
+      <vbox id="homepage-box" class="pref">
+        <checkbox id="homepage" checked="true"
+          label="&settingsguard.homepage.label;"
+          tooltiptext="&settingsguard.homepageTip.label;" />
+        <label value="&settingsguard.current.label;" />
+        <textbox id="homepage-value" readonly="true" disabled="true"
+          tooltiptext="&settingsguard.homepageTip.label;" />
+      </vbox>
+      <vbox id="newtab-url-box" class="pref">
+        <checkbox id="newtab-url" checked="true"
+          label="&settingsguard.newTabUrl.label;"
+          tooltiptext="&settingsguard.newTabUrlTip.label;" />
+        <label value="&settingsguard.current.label;" />
+        <textbox id="newtab-url-value" readonly="true" disabled="true"
+          tooltiptext="&settingsguard.newTabUrlTip.label;" />
+      </vbox>
+      <vbox id="keyword-url-box" class="pref">
+        <checkbox id="keyword-url" checked="true"
+          label="&settingsguard.keywordUrl.label;"
+          tooltiptext="&settingsguard.keywordUrlTip.label;" />
+        <label value="&settingsguard.current.label;" />
+        <textbox id="keyword-url-value" readonly="true" disabled="true"
+          tooltiptext="&settingsguard.keywordUrlTip.label;" />
+      </vbox>
+      <vbox id="user-agent-box" class="pref">
+        <checkbox id="user-agent" checked="true"
+          label="&settingsguard.userAgent.label;"
+          tooltiptext="&settingsguard.userAgentTip.label;" />
+        <label value="&settingsguard.current.label;" />
+        <textbox id="user-agent-value" readonly="true" disabled="true"
+          tooltiptext="&settingsguard.userAgentTip.label;" />
+      </vbox>
+    </groupbox>
+  </vbox>
+
+</dialog>

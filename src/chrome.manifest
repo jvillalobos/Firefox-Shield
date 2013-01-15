@@ -2,10 +2,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-content   firefoxshield                content/
-skin      firefoxshield  classic/1.0   skin/
+content   settingsguard                content/
+skin      settingsguard  classic/1.0   skin/
 
-locale    firefoxshield  en-US         locale/en-US/
-locale    firefoxshield  es-ES         locale/es/
-locale    firefoxshield  es-AR         locale/es/
-locale    firefoxshield  es-CL         locale/es/
+locale    settingsguard  en-US         locale/en-US/
+locale    settingsguard  es-ES         locale/es/
