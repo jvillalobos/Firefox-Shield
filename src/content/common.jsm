@@ -86,14 +86,10 @@ let SettingsGuard = {
 
       if (!windowShown) {
         Services.prefs.setBoolPref(PREF_WINDOW_SHOWN, true);
-
-        let bundle =
-          Services.strings.
-            createBundle("chrome://settingsguard/locale/alarm.properties");
-
-        Services.prompt.alert(
-          aWindow, bundle.GetStringFromName("settingsguard.alert.title"),
-          bundle.GetStringFromName("settingsguard.alert.label"));
+        aWindow.openDialog(
+          "chrome://settingsguard/content/copacetic.xul",
+          "settingsguard-ok",
+          "chrome,titlebar,toolbar,centerscreen,dialog,resizable=no");
       }
     }
   },
@@ -135,7 +131,8 @@ function getPref(aPrefName) {
   if (PREF_HOMEPAGE != aPrefName) {
     value = Services.prefs.getCharPref(aPrefName);
   } else {
-    value = Services.prefs.getComplexValue(aPrefName, Ci.nsIPrefLocalizedString).data;
+    value =
+      Services.prefs.getComplexValue(aPrefName, Ci.nsIPrefLocalizedString).data;
   }
 
   return value;

@@ -6,16 +6,16 @@
 
 <?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
 <?xml-stylesheet type="text/css"
-  href="chrome://settingsguard/skin/alarm.css" ?>
+  href="chrome://settingsguard/skin/settingsGuard.css" ?>
 
 <!DOCTYPE dialog [
   <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
   %brandDTD;
-  <!ENTITY % alarmDTD SYSTEM "chrome://settingsguard/locale/alarm.dtd">
-  %alarmDTD;
+  <!ENTITY % settingsGuardDTD SYSTEM "chrome://settingsguard/locale/settingsGuard.dtd">
+  %settingsGuardDTD;
 ]>
 
-<dialog id="settingsguard-alarm" title="&settingsguard.alarm.title;"
+<dialog id="settingsguard-alarm" title="&settingsguard.title;"
   ondialogaccept="return SGAlarm.accept();"
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 

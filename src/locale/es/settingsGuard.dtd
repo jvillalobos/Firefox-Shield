@@ -2,7 +2,7 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-<!ENTITY settingsguard.alarm.title          "Guardián de preferencias">
+<!ENTITY settingsguard.title          "Guardián de preferencias">
 
 <!ENTITY settingsguard.firstRun.label       "Las siguientes preferencias pueden haber sido cambiadas por un complemento. Desea utilizar las preferencias originales?">
 <!ENTITY settingsguard.current.label        "Preferencia actual:">
@@ -14,3 +14,5 @@
 <!ENTITY settingsguard.keywordUrlTip.label  "Esta páginga de búsqueda se abre cuando ingresa palabras en la barra de direcciones.">
 <!ENTITY settingsguard.userAgent.label      "Agente de usuario">
 <!ENTITY settingsguard.userAgentTip.label   "Así es como &brandShortName; se identifica en la web.">
+
+<!ENTITY settingsguard.ok.label             "No se detectaron cambios a preferencias.">

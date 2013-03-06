@@ -36,6 +36,5 @@ function startup(aData, aReason) {
 }
 
 function shutdown(aData, aReason) {
-  Components.utils.unload("resource://gre/modules/Services.jsm");
   Components.utils.unload("chrome://settingsguard/content/common.jsm");
 }
