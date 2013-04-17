@@ -46,15 +46,6 @@ let SGAlarm = {
       document.getElementById("user-agent").checked);
 
     return true;
-  },
-
-  _log : function (aText) {
-    if (null == this._consoleService) {
-      this._consoleService =
-        Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
-    }
-
-    this._consoleService.logStringMessage(aText);
   }
 };
 

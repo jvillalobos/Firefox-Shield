@@ -17,6 +17,7 @@ const PREF_KEYWORD_URL = "keyword.URL";
 const PREF_USER_AGENT = "general.useragent.override";
 const PREF_BACKUP_PREFIX = "extensions.settingsguard.backup.";
 const PREF_WINDOW_SHOWN = "extensions.settingsguard.windowShown";
+const PREF_DEBUG = "extensions.settingsguard.logging";
 
 const CUSTOM_HOMEPAGES_RE =
   /http(s)?:\/\/([^\/]+\.)?(searchqu|babylon|searchfunmoods|claro-search)\.com/;
@@ -61,14 +62,14 @@ let SettingsGuard = {
    * Checks for changes in the preferences we monitor.
    */
   checkPrefs : function(aWindow) {
-    // log("Checking for preference changes.");
+    log("Checking for preference changes.");
 
     if (this.homepageChanged || this.newTabURLChanged ||
         this.keywordURLChanged || this.userAgentChanged) {
-      /* log(
-        "Preferences changed. Homepage: " + prefChanges.homepage +
-        ", keyword URL: " +  prefChanges.keywordURL + ", new tab URL: " +
-        prefChanges.newTabURL + ", user agent: " + prefChanges.userAgent); */
+      log(
+        "Preferences changed. Homepage: " + this.homepageChanged +
+        ", keyword URL: " +  this.keywordURLChanged + ", new tab URL: " +
+        this.newTabURLChanged  + ", user agent: " + this.userAgentChanged);
 
       // Since we're showing the preference reset window, don't show the success
       // window next time, after the reset.
@@ -100,9 +101,9 @@ let SettingsGuard = {
    */
   maybeResetPrefs : function(
     aResetHomepage, aResetNewTabURL, aResetKeywordURL, aResetUserAgent) {
-    /*log("Resetting prefs. homepage: " + aResetHomepage +
+    log("Resetting prefs. homepage: " + aResetHomepage +
         ", newTabURL: " + aResetNewTabURL + ", keywordURL: " + aResetKeywordURL +
-        ", userAgent: " + aResetUserAgent);*/
+        ", userAgent: " + aResetUserAgent);
 
     if (this.homepageChanged) {
       maybeResetPref(PREF_HOMEPAGE, aResetHomepage);
@@ -126,16 +127,20 @@ let SettingsGuard = {
  * Gets the value of the given preference.
  */
 function getPref(aPrefName) {
-  let value = null;
-
   if (PREF_HOMEPAGE != aPrefName) {
-    value = Services.prefs.getCharPref(aPrefName);
+    return Services.prefs.getCharPref(aPrefName);
   } else {
-    value =
-      Services.prefs.getComplexValue(aPrefName, Ci.nsIPrefLocalizedString).data;
-  }
+    let value = "";
 
-  return value;
+    try {
+      value =
+        Services.prefs.getComplexValue(aPrefName, Ci.nsIPrefLocalizedString).data;
+    } catch (e) {
+      log("Broken homepage value.");
+    }
+
+    return value;
+  }
 }
 
 /**
@@ -161,7 +166,7 @@ function hasChanged(aPrefName) {
       }
     }
 
-    // log("Changed " + aPrefName + ": " + changed +".");
+    log("Changed " + aPrefName + ": " + changed +".");
   }
 
   return changed;
@@ -181,10 +186,8 @@ function maybeResetPref(aPrefName, aResetPref) {
 }
 
 function log(aText) {
-  if (null == consoleService) {
-    consoleService =
-      Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
+  if (Services.prefs.prefHasUserValue(PREF_DEBUG) &&
+      Services.prefs.getBoolPref(PREF_DEBUG)) {
+    Services.console.logStringMessage(aText);
   }
-
-  consoleService.logStringMessage(aText);
 }

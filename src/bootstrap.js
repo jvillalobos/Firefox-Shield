@@ -30,8 +30,22 @@ function startup(aData, aReason) {
 
     Services.ww.registerNotification(observer);
   } else {
-    SettingsGuard.checkPrefs(
-      Services.wm.getMostRecentWindow("navigator:browser"));
+    let windowsEnum = Services.wm.getEnumerator("navigator:browser");
+    let win = null;
+    let nextWin = null;
+
+    // the enumeration is oldest to newest, and we want the newest open window.
+    while (windowsEnum.hasMoreElements()) {
+      nextWin = windowsEnum.getNext();
+
+      if (!nextWin.closed) {
+        win = nextWin;
+      }
+    }
+
+    if (null != win) {
+      SettingsGuard.checkPrefs(win);
+    }
   }
 }
 
